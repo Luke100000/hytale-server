@@ -26,8 +26,8 @@ ARGS_DEFAULT="
 
 # Default Java options when not overridden by `JAVA_OPTS`
 JAVA_OPTS_DEFAULT="
--Xms$MAX_MEMORY
--Xmx$INITIAL_MEMORY
+-Xms$INITIAL_MEMORY
+-Xmx$MAX_MEMORY
 -XX:+UseG1GC
 -XX:MaxGCPauseMillis=150
 -XX:+AlwaysPreTouch
