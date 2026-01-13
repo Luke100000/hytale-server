@@ -7,6 +7,7 @@ Script and docker to automatically download and run a Hytale server with sensibl
 Common settings:
 
 - `MAX_MEMORY`: Maximum memory allocation for the server (default: `4G`).
+- `INITIAL_MEMORY`: Initial memory allocation for the server (default: `MAX_MEMORY`).
 - `ADDRESS`: The address the server will bind to (default: `0.0.0.0:5520`).
 - `BACKUP_FREQUENCY`: Frequency of automatic backups in minutes (default: `480`).
 - `BACKUP_RETENTION`: Number of backups to retain (default: `5`).

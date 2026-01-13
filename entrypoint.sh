@@ -5,6 +5,7 @@ mkdir -p data
 cd data
 
 : "${MAX_MEMORY:=4G}"
+: "${INITIAL_MEMORY:=$MAX_MEMORY}"
 : "${ADDRESS:=0.0.0.0:5520}"
 : "${BACKUP_FREQUENCY:=480}"
 : "${BACKUP_MAX_COUNT:=5}"
@@ -26,7 +27,7 @@ ARGS_DEFAULT="
 # Default Java options when not overridden by `JAVA_OPTS`
 JAVA_OPTS_DEFAULT="
 -Xms$MAX_MEMORY
--Xmx$MAX_MEMORY
+-Xmx$INITIAL_MEMORY
 -XX:+UseG1GC
 -XX:MaxGCPauseMillis=150
 -XX:+AlwaysPreTouch
@@ -53,7 +54,7 @@ if [ ! -f "$FILE" ]; then
 fi
 
 # Download assets
-./hytale-downloader-linux-amd64
+./hytale-downloader-linux-amd64 -print-version
 VERSION=$(./hytale-downloader-linux-amd64 -print-version)
 VERSION_FILE=".current-version"
 if [[ ! -f $VERSION_FILE || $(cat $VERSION_FILE) != "$VERSION" ]]; then
